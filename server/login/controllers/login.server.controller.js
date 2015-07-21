@@ -10,8 +10,11 @@ module.exports.index = function(req, res) {
 };
 
 module.exports.login = function(req, res) {
-    UserSchema.find(req.body).exec(function(err,result){
+    UserSchema.findOne(req.body).exec(function(err,result){
        if (!err) {
+           if (result) {
+               req.session.user = result;
+           }
            res.json(result);
        }
     });

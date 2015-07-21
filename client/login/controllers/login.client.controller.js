@@ -7,7 +7,7 @@ angular.module('login').controller('LoginController',['$scope','$http','$locatio
         $http
             .post('/login',$scope.user)
             .success(function(result){
-                if(!result || result.length == 0) {
+                if(!result) {
                     $scope.message = 'Login failure';
                 } else {
                     $location.path('/userlist');
