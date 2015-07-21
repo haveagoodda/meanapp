@@ -1,5 +1,5 @@
 # meanapp
-a mean app
+
 1. Install node,mongodb
 
 2. install bower
