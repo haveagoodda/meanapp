@@ -1,13 +1,5 @@
-# Logs
-
-
-# Runtime data
-pids
-*.pid
-*.seed
-
 # webstorm
-.idea
+# .idea
 
 # client_modules
 client_modules
@@ -15,12 +7,8 @@ client_modules
 
 
 
-# node-waf configuration
-.lock-wscript
 
-# Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
+
 
 # Dependency directory
-# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
