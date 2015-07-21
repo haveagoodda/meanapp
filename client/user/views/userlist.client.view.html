@@ -1,0 +1,26 @@
+<style>
+    .none-border-input {
+        border : 0px;
+        background : #fff;
+    }
+
+</style>
+
+<div data-ng-controller="UserController" data-ng-init="init()">
+
+    <table class="table">
+        <th>
+            <td>Username</td>
+            <td>Password</td>
+            <td>Action</td>
+        </th>
+        <tr ng-repeat="user in userlist">
+            <td></td>
+            <td><input ng-model="user.username" class="none-border-input" ng-blur="save(user)"/></td>
+            <td><input ng-model="user.password" class="none-border-input" ng-blur="save(user)"/></td>
+            <td><button class="btn btn-default" ng-click="delete(user._id)">Delete</button></td>
+        </tr>
+    </table>
+    <button class="btn btn-primary" ng-click="add()">Add</button>
+    <p class="text-info bg-info" ng-if="showMessage">{{message}}</p>
+</div>
