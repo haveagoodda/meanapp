@@ -2,8 +2,10 @@
 
 1. Install node,mongodb
 
-2. install bower
-`npm install -g bower`
+2. install bower & gulp
+
+`npm install -g bower`,
+`npm install -g gulp`
 
 3. `cd [app_dir]`
 
