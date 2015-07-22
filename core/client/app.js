@@ -5,17 +5,26 @@
 var mainApplicationModuleName = 'mainApp';
 
 // Create the main application
-var mainApplicationModule = angular.module(mainApplicationModuleName, ['ngRoute','login','user']);
-mainApplicationModule.config(['$routeProvider',
+var mainApplicationModule = angular.module(mainApplicationModuleName, ['ui.router','login','user']);
+/*mainApplicationModule.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'login/views/login.client.view.html'
             });
     }
+]);*/
+mainApplicationModule.config(['$stateProvider',
+    function($stateProvider) {
+        $stateProvider
+            .state('index', {
+                url : '',
+                templateUrl: 'login/views/login.client.view.html'
+            });
+    }
 ]);
-/*
-mainApplicationModule.config(['$locationProvider',
+
+/*mainApplicationModule.config(['$locationProvider',
     function($locationProvider) {
         $locationProvider.hashPrefix('!');
     }]);*/
