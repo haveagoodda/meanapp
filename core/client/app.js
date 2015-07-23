@@ -5,7 +5,7 @@
 var mainApplicationModuleName = 'mainApp';
 
 // Create the main application
-var mainApplicationModule = angular.module(mainApplicationModuleName, ['ui.router','login','user']);
+var mainApplicationModule = angular.module(mainApplicationModuleName, ['ui.router','login','user','mainPage']);
 /*mainApplicationModule.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider

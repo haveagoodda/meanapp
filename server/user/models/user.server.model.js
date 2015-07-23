@@ -12,7 +12,7 @@ var userSchema = new mongoose.Schema({
         type : String,
         required : true
     }
-})
+});
 
 mongoose.model('users', userSchema);
 

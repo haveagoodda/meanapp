@@ -6,13 +6,11 @@ angular.module('user').controller('UserController', ['$scope', '$http', function
         $scope.showMessage = false;
         $http.get('/api/user/list')
             .success(function (result) {
-                console.info(result);
                 $scope.userlist = result;
             });
     };
 
     $scope.delete = function(_id) {
-        console.info(_id);
         $http.delete('/api/user/'+_id)
             .success(function(result) {
                 if (result){

@@ -23,7 +23,7 @@ gulp.task('devServe', function () {
 });
 gulp.task('watch', function () {
     gulp.watch(paths.js).on('change', plugins.livereload.changed);
-    gulp.watch(paths.html).on('change', plugins.livereload.changed);
+   // gulp.watch(paths.html).on('change', plugins.livereload.changed);
     plugins.livereload.listen({interval: 500});
 });
 

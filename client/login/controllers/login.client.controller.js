@@ -10,7 +10,7 @@ angular.module('login').controller('LoginController',['$scope','$http','$locatio
                 if(!result) {
                     $scope.message = 'Login failure';
                 } else {
-                    $location.path('/userlist');
+                    $location.path('/main');
                 }
             });
     }

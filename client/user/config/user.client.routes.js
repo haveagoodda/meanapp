@@ -11,13 +11,13 @@ angular.module('login').config(['$routeProvider',
     }
 
 ]);*/
-angular.module('login').config(['$stateProvider',
+/*angular.module('login').config(['$stateProvider',
     function($stateProvider) {
         $stateProvider
             .state('userlist', {
-                url : '/userlist',
+                url : '/main/userlist',
                 templateUrl: 'user/views/userlist.client.view.html'
             });
     }
 
-]);
+]);*/
