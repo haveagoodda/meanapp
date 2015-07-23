@@ -2,6 +2,7 @@
 'use strict';
 
 angular.module('login').controller('LoginController',['$scope','$http','$location',function($scope,$http,$location) {
+    
 
     $scope.login = function() {
         $http

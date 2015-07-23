@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var UserSchema = mongoose.model('users');
 
 module.exports.list = function(req, res) {
-    UserSchema.find({}).exec(function(err,result) {
+    UserSchema.find({},['_id','username','password']).exec(function(err,result) {
         res.json(result);
     });
 };
@@ -17,6 +17,7 @@ module.exports.delete = function(req, res) {
         res.end();
     });
 };
+
 
 module.exports.update = function(req, res) {
     UserSchema.update({_id:req.body._id},req.body).exec(function(err,result) {

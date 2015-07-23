@@ -1,8 +1,8 @@
-
-angular.module('mainPage').controller('MainPageController',['$scope','$location',function($scope,$location){
+'use strict';
+angular.module('mainPage').controller('MainPageController',['$scope','$location','$state',function($scope,$location,$state){
 
     $scope.init = function() {
-        $scope.currentPage = $location.$$url.split('/').reverse()[0];
+        $scope.currentPage = $state.current.name;
     };
     $scope.changePage = function(to) {
         $scope.currentPage = to;

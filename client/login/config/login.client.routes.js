@@ -13,6 +13,7 @@ angular.module('login').config(['$stateProvider',
             .state('login', {
                 url : '/login',
                 templateUrl: 'login/views/login.client.view.html'
+
             });
     }
 ]);

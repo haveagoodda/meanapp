@@ -5,3 +5,4 @@
 angular.module('user').factory('user',['$resource',function($resource) {
     return $resource('/api/user/list',{},{});
 }]);*/
+'use strict';
