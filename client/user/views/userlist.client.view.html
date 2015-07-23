@@ -1,26 +1,50 @@
 <style>
-    .none-border-input {
-        border : 0px;
-        background : #fff;
-    }
 
 </style>
 
-<div data-ng-controller="UserController" data-ng-init="init()">
-
-    <table class="table">
-        <th>
-            <td>Username</td>
-            <td>Password</td>
-            <td>Action</td>
-        </th>
-        <tr ng-repeat="user in userlist">
-            <td></td>
-            <td><input ng-model="user.username" class="none-border-input" ng-blur="save(user)"/></td>
-            <td><input ng-model="user.password" class="none-border-input" ng-blur="save(user)"/></td>
-            <td><button class="btn btn-default" ng-click="delete(user._id)">Delete</button></td>
+<div class="panel panel-default" data-ng-controller="UserController" data-ng-init="init()">
+    <div class="panel-heading">
+        <h4 class="panel-title">User List</h4>
+    </div>
+    <table class="table table-condensed" style="margin-top: 5px">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Username</td>
+                <td>Password</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tr ng-repeat="result in resultList">
+            <td style="text-align: center">{{$index+1}}</td>
+            <td><input ng-model="result.user.username" placeholder="Username" class="form-control" ng-readonly="result.readonly"/></td>
+            <td><input ng-model="result.user.password" placeholder="Password" class="form-control" ng-readonly="result.readonly"/></td>
+            <td>
+                <button class="btn btn-primary" ng-click="edit(result)" ng-show="result.readonly">Edit</button>
+                <button class="btn btn-primary" ng-click="save(result)" ng-show="!result.readonly">Save</button>
+                <button class="btn btn-default" ng-click="delete(result.user._id)">Delete</button>
+            </td>
         </tr>
     </table>
-    <button class="btn btn-primary" ng-click="add()">Add</button>
     <p class="text-info bg-info" ng-if="showMessage">{{message}}</p>
+    <nav>
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <button class="btn btn-primary" ng-click="add()">Add</button>
 </div>

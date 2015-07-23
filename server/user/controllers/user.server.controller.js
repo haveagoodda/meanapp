@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var UserSchema = mongoose.model('users');
 
 module.exports.list = function(req, res) {
-    UserSchema.find({},['_id','username','password']).exec(function(err,result) {
+    UserSchema.find({},{_id:1,username:2,password:3}).exec(function(err,result) {
         res.json(result);
     });
 };
