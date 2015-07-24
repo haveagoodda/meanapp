@@ -6,11 +6,35 @@ var mongoose = require('mongoose');
 var UserSchema = mongoose.model('users');
 
 module.exports.list = function(req, res) {
-    UserSchema.find({},{_id:1,username:2,password:3}).exec(function(err,result) {
-        res.json(result);
+
+
+    UserSchema.find({})
+        .exec(function(err,result) {
+            res.json(result);
     });
 };
 
+module.exports.pagingList = function (req, res) {
+    var pageInfo = req.body;
+    var result = {};
+    UserSchema.find().count().exec(
+        function(err,cnt) {
+            result.total = cnt;
+            if(cnt > 0) {
+                UserSchema.find()
+                    .skip(pageInfo.page)
+                    .limit(pageInfo.pageSize)
+                    .exec(function(err,userList) {
+                            result.userList = userList;
+                            res.json(result);
+                        });
+            }
+
+        }
+    );
+
+
+};
 module.exports.delete = function(req, res) {
     UserSchema.remove({_id : req.params.id}).exec(function(err,result) {
         if(!err) res.json({message:'success'});

@@ -2,13 +2,32 @@
  * Created by YANGWI on 7/21/2015.
  */
 'use strict';
+
+
 angular.module('user').controller('UserController', ['$scope', '$http', function ($scope, $http) {
     $scope.init = function () {
         $scope.showMessage = false;
-        $http.get('/api/user/list')
+        $scope.pageInfo = {
+            page: 1,
+            pageSize: 5,
+            total : 0
+        };
+        $scope.pageList = genList($scope.pageInfo.total / $scope.pageInfo.pageSize + 1);
+        $scope.getUsers();
+    };
+    function genList(number) {
+        var i= 0,array = [];
+        for(;i<number;i++) {
+            array.push(number);
+        }
+        return array;
+    }
+    $scope.getUsers = function() {
+        $http.post('/api/user/list',$scope.pageInfo)
             .success(function (result) {
+                $scope.pageInfo.total = result.total;
                 $scope.resultList = [];
-                result.forEach(function(user){
+                result.userList.forEach(function(user){
                     $scope.resultList.push({user:user,readonly:true});
                 });
             });
@@ -65,7 +84,7 @@ angular.module('user').controller('UserController', ['$scope', '$http', function
         }
         for (var index in $scope.resultList) {
             if ($scope.resultList[index].user._id == id) {
-                $scope.resultList.removeAt(index);
+                $scope.resultList.splice(index,1);
             }
         }
     }

@@ -53,6 +53,5 @@ var path = require('path'),
     staticRoute(app);
     route(app);
 
-    require('../../../server/common/patcher/JsPatcher')();
     return app;
 }
